@@ -10,11 +10,15 @@ export default function ImagePreview({ previewUrl, onUpload, onRemove }: ImagePr
   return (
     <div className="bg-gray-50 rounded-xl p-6">
       <h3 className="text-gray-600 text-lg font-medium mb-4">プレビュー:</h3>
-      <img
-        src={previewUrl}
-        alt="レシートプレビュー"
-        className="max-w-md mx-auto rounded-lg shadow-md"
-      />
+      <div className="relative w-full max-w-md mx-auto">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={previewUrl}
+          alt="レシートプレビュー"
+          className="rounded-lg shadow-md w-full h-auto"
+          style={{ objectFit: 'contain' }}
+        />
+      </div>
       <div className="mt-4 flex gap-3">
         <button
           onClick={onRemove}
