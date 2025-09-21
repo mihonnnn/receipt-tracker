@@ -7,13 +7,11 @@ import ImagePreview from '@/components/ImagePreview'
 import Features from '@/components/Features'
 
 export default function Home() {
-  const [selectedFile, setSelectedFile] = useState<File | null>(null)
   const [previewUrl, setPreviewUrl] = useState<string | null>(null)
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
     if (file) {
-      setSelectedFile(file)
       const url = URL.createObjectURL(file)
       setPreviewUrl(url)
     }
@@ -24,7 +22,6 @@ export default function Home() {
   }
 
   const handleRemove = () => {
-    setSelectedFile(null)
     setPreviewUrl(null)
   }
 
